@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.form-container {
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards ease-out;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    min-height: 400px;
+}
+
+.form-content-wrapper {
+    position: relative;
+    height: 440px; /* Increased height to accommodate the new checkbox */
+    transition: height 0.5s ease-in-out;
+}
+
+.form-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.form-content.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 10;
+}
+
+.floating-label input {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #1f2937;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: transparent;
+    padding: 0 4px;
+}
+
+.error-message {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    color: #ff0000;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+.tab-button {
+    color: #e2e8f0;
+}
+
+.tab-button.active {
+    color: #4f46e5;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.submit-button {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

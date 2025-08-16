@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login/Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div id="form-container" class="form-container rounded-xl shadow-2xl p-8 max-w-sm w-full opacity-0">
+        <div class="flex items-center justify-center mb-6">
+            <div class="flex space-x-2">
+                <button id="loginTab" class="tab-button active font-semibold px-4 py-2 rounded-full transition-colors duration-200">Log In</button>
+                <button id="signupTab" class="tab-button font-semibold px-4 py-2 rounded-full transition-colors duration-200">Sign Up</button>
+            </div>
+        </div>
+        
+        <div class="form-content-wrapper">
+            <!-- Login Form Content -->
+            <div id="loginFormContent" class="form-content active">
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Welcome Back</h2>
+                <p class="text-center text-gray-200 mb-6">Please sign in to your account</p>
+                <form id="loginForm" class="space-y-6" novalidate>
+                    <div class="relative floating-label">
+                        <input type="text" id="loginUsername" name="username" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="loginUsername"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Username
+                        </label>
+                        <span id="loginUsernameError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    <div class="relative floating-label">
+                        <input type="password" id="loginPassword" name="password" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="loginPassword"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Password
+                        </label>
+                        <span id="loginPasswordError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    <button type="submit"
+                            class="submit-button w-full text-white font-semibold py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        Sign In
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Signup Form Content -->
+            <div id="signupFormContent" class="form-content">
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Create an Account</h2>
+                <p class="text-center text-gray-200 mb-6">Please fill in your details to get started</p>
+                <form id="signupForm" class="space-y-6" novalidate>
+                    <div class="relative floating-label">
+                        <input type="text" id="signupUsername" name="username" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="signupUsername"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Username
+                        </label>
+                        <span id="signupUsernameError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    <div class="relative floating-label">
+                        <input type="email" id="signupEmail" name="email" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="signupEmail"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Email
+                        </label>
+                        <span id="signupEmailError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    <div class="relative floating-label">
+                        <input type="password" id="signupPassword" name="password" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="signupPassword"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Password
+                        </label>
+                        <span id="signupPasswordError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    <div class="relative floating-label">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder=" "
+                               class="peer w-full px-4 py-3 rounded-lg text-white placeholder-transparent focus:outline-none focus:border-white transition duration-200">
+                        <label for="confirmPassword"
+                               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-200 text-base transition-all duration-200 ease-in-out peer-focus:top-0 peer-focus:text-xs peer-focus:bg-transparent peer-focus:px-1 peer-focus:text-white peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:bg-transparent peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:text-white">
+                            Confirm Password
+                        </label>
+                        <span id="confirmPasswordError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2 text-gray-200">
+                        <input type="checkbox" id="termsCheckbox" name="terms" class="form-checkbox h-4 w-4 text-indigo-600 bg-gray-700 rounded border-gray-600 focus:ring-indigo-500">
+                        <label for="termsCheckbox" class="text-sm">I agree to the <a href="#" class="underline text-white hover:text-indigo-200">Terms & Conditions</a></label>
+                    </div>
+                    <span id="termsError" class="error-message text-red-300 text-xs mt-1 block pl-1"></span>
+
+                    <button type="submit"
+                            class="submit-button w-full text-white font-semibold py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Message Modal -->
+        <div id="successModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center transition-opacity duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center transform scale-95 transition-transform duration-300">
+                <h3 class="text-xl font-bold text-green-600 mb-2">Success!</h3>
+                <p id="modalMessage" class="text-gray-700">Form submitted successfully.</p>
+                <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Close</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>
